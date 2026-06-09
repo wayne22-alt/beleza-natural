@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beleza Natural — Receitas Caseiras</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ec;
+    --warm: #f5e6cc;
+    --terracotta: #c4714a;
+    --terra-dark: #9c4e2c;
+    --green: #4a7c59;
+    --green-light: #7aaa8a;
+    --brown: #5c3d2e;
+    --text: #2e1f0f;
+    --gold: #c9933a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2e1f0f 0%, #5c3d2e 50%, #9c4e2c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(196,113,74,0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(74,124,89,0.2) 0%, transparent 50%);
+  }
+
+  .hero-decor {
+    position: absolute;
+    font-size: 18vw;
+    opacity: 0.04;
+    font-family: 'Playfair Display', serif;
+    top: -2%;
+    left: -2%;
+    line-height: 1;
+    color: white;
+    pointer-events: none;
+    letter-spacing: -10px;
+  }
+
+  .circles {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+    animation: pulse 6s ease-in-out infinite;
+  }
+  .circles::before {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .circles::after {
+    content: '';
+    position: absolute;
+    inset: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 1; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 720px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(201,147,58,0.25);
+    border: 1px solid rgba(201,147,58,0.5);
+    color: #e8c078;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    animation: fadeUp 0.8s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--terracotta), var(--gold));
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(196,113,74,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  .hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(196,113,74,0.6);
+  }
+
+  .hero-price {
+    margin-top: 20px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    animation: fadeUp 0.8s ease 0.4s both;
+  }
+  .hero-price strong { color: #e8c078; font-size: 1.1rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* TAGS */
+  .tags-bar {
+    background: var(--green);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .tags-bar span {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* INTRO */
+  .intro {
+    padding: 80px 20px;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--brown);
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  .intro p {
+    font-size: 1.05rem;
+    color: #6b4c35;
+    line-height: 1.8;
+  }
+
+  /* CHAPTERS */
+  .chapters {
+    background: var(--warm);
+    padding: 80px 20px;
+  }
+
+  .chapters-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .chapters h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    color: var(--brown);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .chapter-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 4px solid var(--terracotta);
+  }
+
+  .chapter-card:nth-child(2) { border-color: var(--green); }
+  .chapter-card:nth-child(3) { border-color: var(--gold); }
+  .chapter-card:nth-child(4) { border-color: #8b6bb1; }
+  .chapter-card:nth-child(5) { border-color: #d4908a; }
+  .chapter-card:nth-child(6) { border-color: var(--green-light); }
+
+  .chapter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  }
+
+  .chapter-icon {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .chapter-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--brown);
+    margin-bottom: 10px;
+  }
+
+  .chapter-card p {
+    font-size: 0.9rem;
+    color: #7a5840;
+    line-height: 1.7;
+  }
+
+  .chapter-count {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: rgba(0,0,0,0.04);
+    line-height: 1;
+  }
+
+  /* BENEFITS */
+  .benefits {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .benefits h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    color: var(--brown);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+
+  .benefit-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--terracotta), var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .benefit-item h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 4px;
+  }
+
+  .benefit-item p {
+    font-size: 0.83rem;
+    color: #9a7560;
+    line-height: 1.5;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    background: linear-gradient(135deg, var(--brown) 0%, #2e1f0f 100%);
+    padding: 80px 20px;
+  }
+
+  .testimonials h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .testi-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .testi-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 14px; letter-spacing: 2px; }
+
+  .testi-card p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .testi-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--terracotta), var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+
+  .testi-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: white;
+  }
+  .testi-place {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* CTA FINAL */
+  .cta-final {
+    padding: 100px 20px;
+    text-align: center;
+    background: var(--cream);
+  }
+
+  .ebook-mockup {
+    width: 200px;
+    height: 270px;
+    background: linear-gradient(135deg, var(--brown) 0%, var(--terracotta) 100%);
+    border-radius: 8px 16px 16px 8px;
+    margin: 0 auto 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: -8px 8px 0 rgba(0,0,0,0.15), 20px 20px 50px rgba(196,113,74,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ebook-mockup::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 12px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 8px 0 0 8px;
+  }
+
+  .ebook-mockup-text {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ebook-mockup-text .emoji { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+
+  .ebook-mockup-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .ebook-mockup-text small { font-size: 0.7rem; opacity: 0.7; letter-spacing: 2px; text-transform: uppercase; }
+
+  .cta-final h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--brown);
+    margin-bottom: 16px;
+  }
+
+  .cta-final p {
+    font-size: 1rem;
+    color: #7a5840;
+    margin-bottom: 40px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .price-box {
+    display: inline-block;
+    background: white;
+    border-radius: 20px;
+    padding: 32px 48px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    margin-bottom: 32px;
+  }
+
+  .price-original {
+    font-size: 0.9rem;
+    color: #bbb;
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--terracotta);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .price-note {
+    font-size: 0.8rem;
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  .btn-buy {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--terracotta), var(--gold));
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 18px 52px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(196,113,74,0.45);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-buy:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(196,113,74,0.55);
+  }
+
+  .guarantee {
+    margin-top: 24px;
+    font-size: 0.82rem;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--brown);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.8rem;
+  }
+
+  footer strong { color: rgba(255,255,255,0.8); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-decor">🌿</div>
+  <div class="circles"></div>
+  <div class="hero-content">
+    <div class="badge">🌿 Ebook Digital • Edição 2025</div>
+    <h1>Beleza <em>Natural</em><br>da Raiz à Pele</h1>
+    <p class="hero-sub">
+      Mais de 60 receitas caseiras com ingredientes simples para cuidar<br>
+      do cabelo, pele, dentes e corpo — do jeito natural.
+    </p>
+    <a href="#comprar" class="hero-cta">Quero o Ebook Agora</a>
+    <p class="hero-price">Por apenas <strong>R$ 37 / 250 MZN</strong> — acesso imediato</p>
+  </div>
+</section>
+
+<!-- TAGS -->
+<div class="tags-bar">
+  <span>🇧🇷 Brasil</span>
+  <span>🇲🇿 Moçambique</span>
+  <span>🌱 100% Natural</span>
+  <span>📱 Download Imediato</span>
+  <span>✅ +60 Receitas</span>
+</div>
+
+<!-- INTRO -->
+<section class="intro">
+  <p class="section-label">Por que este ebook?</p>
+  <h2>Cuide do seu corpo com o que a natureza já te deu</h2>
+  <p>
+    Produtos industrializados são caros, cheios de químicos e muitas vezes difíceis de encontrar. 
+    Com ingredientes simples como mel, óleo de coco, babosa e limão — que você já tem em casa — 
+    é possível criar tratamentos poderosos para cabelo, pele e dentes. Este guia foi pensado 
+    especialmente para mulheres do Brasil e de Moçambique.
+  </p>
+</section>
+
+<!-- CHAPTERS -->
+<section class="chapters">
+  <div class="chapters-inner">
+    <h2>O que você vai encontrar</h2>
+    <div class="chapters-grid">
+
+      <div class="chapter-card">
+        <span class="chapter-count">01</span>
+        <span class="chapter-icon">💇🏾‍♀️</span>
+        <h3>Cabelos</h3>
+        <p>Máscaras de hidratação, crescimento capilar, receitas anticaspa, brilho e definição dos cachos.</p>
+      </div>
+
+      <div class="chapter-card">
+        <span class="chapter-count">02</span>
+        <span class="chapter-icon">🌿</span>
+        <h3>Pele do Rosto</h3>
+        <p>Esfoliante, tônico natural, máscara anti-acne, hidratante, clareador de manchas.</p>
+      </div>
+
+      <div class="chapter-card">
+        <span class="chapter-count">03</span>
+        <span class="chapter-icon">🦷</span>
+        <h3>Dentes</h3>
+        <p>Pasta dental caseira, clareamento natural com carvão ou cúrcuma, enxaguante bucal antibacteriano.</p>
+      </div>
+
+      <div class="chapter-card">
+        <span class="chapter-count">04</span>
+        <span class="chapter-icon">🧴</span>
+        <h3>Corpo</h3>
+        <p>Esfoliante corporal de açúcar, hidratante nutritivo, desodorante natural, sabonete artesanal.</p>
+      </div>
+
+      <div class="chapter-card">
+        <span class="chapter-count">05</span>
+        <span class="chapter-icon">💅🏾</span>
+        <h3>Mãos e Unhas</h3>
+        <p>Fortalecimento das unhas, hidratação das cutículas, banhos de imersão revitalizantes.</p>
+      </div>
+
+      <div class="chapter-card">
+        <span class="chapter-count">06</span>
+        <span class="chapter-icon">🌸</span>
+        <h3>Bônus — Bem-estar</h3>
+        <p>Banhos relaxantes, aromaterapia caseira, spray corporal natural e receitas para dormir melhor.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <h2>Por que escolher receitas caseiras?</h2>
+  <div class="benefits-list">
+    <div class="benefit-item">
+      <div class="benefit-icon">💰</div>
+      <div>
+        <h4>Econômico</h4>
+        <p>Ingredientes simples e baratos que substituem produtos caros de salão.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">🌱</div>
+      <div>
+        <h4>Natural e Seguro</h4>
+        <p>Sem parabenos, sulfatos ou conservantes artificiais na sua pele.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">🛒</div>
+      <div>
+        <h4>Fácil de Encontrar</h4>
+        <p>Tudo disponível em mercados e feiras de Maputo, Beira, São Paulo ou Salvador.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">⚡</div>
+      <div>
+        <h4>Resultados Reais</h4>
+        <p>Receitas testadas e aprovadas para peles e cabelos negros e mestiços.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <h2>Quem já usou, aprovou</h2>
+  <div class="testi-grid">
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"A máscara de babosa com mel transformou o meu cabelo. Nunca tive tão pouco frizz durante a estação das chuvas!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👩🏾</div>
+        <div>
+          <div class="testi-name">Fátima A.</div>
+          <div class="testi-place">Maputo, Moçambique</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"Fiz o esfoliante de açúcar com coco e minha pele ficou hidratada por dias. Vale muito mais que qualquer creme de farmácia."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👩🏽</div>
+        <div>
+          <div class="testi-name">Camila R.</div>
+          <div class="testi-place">Salvador, Brasil</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"O clareamento com cúrcuma funcionou melhor do que o kit da farmácia e gastei uma fração do preço. Recomendo!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👩🏾</div>
+        <div>
+          <div class="testi-name">Graça M.</div>
+          <div class="testi-place">Beira, Moçambique</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="comprar">
+
+  <div class="ebook-mockup">
+    <div class="ebook-mockup-text">
+      <span class="emoji">🌿</span>
+      <h3>Beleza Natural<br>da Raiz à Pele</h3>
+      <small>Ebook • +60 Receitas</small>
+    </div>
+  </div>
+
+  <h2>Comece hoje mesmo</h2>
+  <p>Acesso imediato após o pagamento. Disponível em PDF para ler no celular, tablet ou computador.</p>
+
+  <div class="price-box">
+    <div class="price-original">R$ 97 / 500 MZN</div>
+    <div class="price-main">R$ 37</div>
+    <div class="price-note">🇲🇿 ou 250 MZN — Oferta de lançamento</div>
+  </div>
+
+  <br>
+  <a href="#" class="btn-buy">Comprar Agora — Acesso Imediato</a>
+
+  <p class="guarantee">🔒 Pagamento seguro · 7 dias de garantia · PDF instantâneo</p>
+</section>
+
+<footer>
+  <p><strong>Beleza Natural — Receitas Caseiras</strong></p>
+  <p>Para mulheres do Brasil 🇧🇷 e Moçambique 🇲🇿 • Ebook Digital 2025</p>
+</footer>
+
+</body>
+</html>
